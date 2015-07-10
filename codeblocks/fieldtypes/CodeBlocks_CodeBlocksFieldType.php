@@ -106,8 +106,23 @@ class CodeBlocks_CodeBlocksFieldType extends BaseFieldType
     /**
      * Modify the fieldtype's data, before using
      */
+    public function prepValueFromPost($value)
+    {
+        // output is html-encoded. Even <pre><code>. Need to debug…
+        // $output = craft()->templates->render('codeblocks/output', array(
+        //     'mode'     => $value['mode'],
+        //     'text'     => $value['text']
+        // ));
+        // $value['output'] = $output;
+        return $value;
+    }
+
+    /**
+     * Modify the fieldtype's data, before using
+     */
     public function prepValue($value)
     {
+        // possibly do something with $value->output
         return $value;
     }
 
